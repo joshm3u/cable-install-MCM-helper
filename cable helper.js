@@ -5,6 +5,8 @@
 // @description  Collect input and fill the cable install MCM template
 // @author       chengng@
 // @match      https://mcm.amazon.com/cms/new?from_template=d3a442df-63cb-49b6-8501-60a202a1fa59
+// @updateURL https://raw.githubusercontent.com/joshm3u/cable-install-MCM-helper/main/cable%20helper.js
+// @downloadURL https://raw.githubusercontent.com/joshm3u/cable-install-MCM-helper/main/cable%20helper.js
 // @grant        none
 // ==/UserScript==
 
