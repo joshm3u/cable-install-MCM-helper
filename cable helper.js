@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cable installation MCM helper
 // @namespace    https://mcm.amazon.com
-// @version      0.3
+// @version      0.4
 // @description  Collect input and fill the cable install MCM template
 // @author       chengng@
 // @match      https://mcm.amazon.com/cms/new?from_template=d3a442df-63cb-49b6-8501-60a202a1fa59
@@ -16,6 +16,7 @@ REVISION HISTORY:
 0.1a  - 2023-09-06 - chengng@ - Reduce the @grant permission
 0.2 - 2023-09-06 - chengng@ - sync the update to github for public access
 0.3 - 2023-09-06 - chengng@ - test the script update download from github
+0.4 - 2023-09-06 - test only
 */
 
 (function() {
