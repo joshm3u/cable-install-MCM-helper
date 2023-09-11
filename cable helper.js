@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Cable installation MCM helper
 // @namespace    https://mcm.amazon.com
-// @version      0.4
+// @version      0.5
 // @description  Collect input and fill the cable install MCM template
 // @author       chengng@
 // @match      https://mcm.amazon.com/cms/new?from_template=d3a442df-63cb-49b6-8501-60a202a1fa59
@@ -12,11 +12,12 @@
 
 /*
 REVISION HISTORY:
-0.1  - 2023-09-06 - chengng@ - Initial setup for the helper
-0.1a  - 2023-09-06 - chengng@ - Reduce the @grant permission
+0.1 - 2023-09-06 - chengng@ - Initial setup for the helper
+0.1a - 2023-09-06 - chengng@ - Reduce the @grant permission
 0.2 - 2023-09-06 - chengng@ - sync the update to github for public access
 0.3 - 2023-09-06 - chengng@ - test the script update download from github
 0.4 - 2023-09-06 - test only
+0.5 - 2023-09-11 - small adjustment
 */
 
 (function() {
@@ -32,7 +33,7 @@ REVISION HISTORY:
         const userInput6 = prompt('Enter the text to replace "06_vendor_POC_information":');
         const userInput7 = prompt('Enter the text to replace "07_primary_sim_URL":');
         const userInput8 = "N/A"; // Predefined input for 08_vendor_walkthrough_MCM
-        const userInput9 = prompt('Enter the text to replace "09_Is_this_MCM_a_continuation_of_a_previous_MCM_if_yes_list_them_below_and_attach_them_in_related_items":');
+        const userInput9 = "No"; // Predefined input for 09_Is_this_MCM_a_continuation_of_a_previous_MCM_if_yes_list_them_below_and_attach_them_in_related_items
         const userInput10 = prompt('Enter the text to replace "10_number_of_affected_devices_cabling_is_being_installed_for":');
         const userInput11 = prompt('Enter the text to replace "11_number_of_connections_to_be_ran":');
         const userInput12 = prompt('Enter the text to replace "12_list_all_hostnames_locations_production_status_and_if_in_scope_of_this_activity":');
