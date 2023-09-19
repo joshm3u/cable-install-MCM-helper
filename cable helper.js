@@ -1,11 +1,11 @@
 // ==UserScript==
 // @name         Cable Installation MCM helper
 // @namespace    http://mcm.amazon.com/
-// @version      0.1
+// @version      0.2
 // @description  Cable Installation MCM helper
 // @author       chengng@
 // @match        https://mcm.amazon.com/cms/new?from_template=d3a442df-63cb-49b6-8501-60a202a1fa59
-// @updateURL https://raw.githubusercontent.com/joshm3u/cable-install-MCM-helper/main/cable%20helper.js
+// @updateURL  https://raw.githubusercontent.com/joshm3u/cable-install-MCM-helper/main/cable%20helper.js
 // @downloadURL https://raw.githubusercontent.com/joshm3u/cable-install-MCM-helper/main/cable%20helper.js
 // @grant        none
 // ==/UserScript==
@@ -13,6 +13,7 @@
 /*
 REVISION HISTORY:
 0.1 - 2023-09-13 - chengng@ - Initial setup for the helper
+0.2 - 2023-09-19 - chengng@ - Remove approvers and Add Tier selection based on the MCM type
 */
 
 (function() {
@@ -53,6 +54,19 @@ REVISION HISTORY:
         if (inputField) {
             inputField.value = inputField.value.replace(placeholder, replacement);
         }
+    }
+
+        // Function to click the "Delete" buttons
+    function clickDeleteButtons() {
+        var deleteButtons = document.querySelectorAll('a.delete-approver'); // Select all elements with class 'delete-approver'
+
+        // Loop through the delete buttons and click them
+        deleteButtons.forEach(function(button) {
+            var dataApprover = button.getAttribute('data-approver');
+            if (dataApprover === 'l2-id-mcmbr' || dataApprover === 'l3-id-approval') {
+                button.click();
+            }
+        });
     }
 
     // Read user inputs from the clipboard
@@ -159,4 +173,26 @@ REVISION HISTORY:
         // Display a final reminder alert
         alert("Don't forget to do following manual tasks:\nA)Double check the above information before submitting for approval\nB)Update 12_all_hostnames\nC)Update 13_patch_panels_locations\nD)Update 16_need to add the NDE cutsheet and relate them too\nE)Adjust 18_detailed onsite plan accordingly");
     });
+
+        // Run the function when the page is fully loaded
+    window.addEventListener('load', function() {
+        clickDeleteButtons();
+    });
+
+// Function to select an option by value in a select element by ID
+function selectOptionByValue(selectId, value) {
+    const selectElement = document.getElementById(selectId);
+    if (selectElement) {
+        for (const option of selectElement.options) {
+            if (option.value === value) {
+                option.selected = true;
+                break;
+            }
+        }
+    }
+}
+
+// Call the function to select "Tier 4" in the 'tier' select element
+selectOptionByValue('tier', 'Tier 4');
+
 })();
